@@ -1,0 +1,35 @@
+Windows İşletim Sistemş Açıklıklarını Tespit Etme
+
+cmd:
+# systeminfo > <patchbilgisi.txt      //İşletim sistemi hakkında teknik detaylarını(OS versiyonu, service pack, geçilen güncelleme yamaları) gösteren sistem özet aracı. Bunun çıktısını da patchbilgisi.txt ye aktardık.
+
+# notepad patchbilgisi.txt            // Dosyanın içeriğini görüntüleyebilirsin.
+
+*Download GDSSecurity/Windows-Exploit-Suggester (from github)
+
+Windows-Exploit-Suggester.zip dosyasını extract ettik. İçinde .py uzantılı dosyayı kullanacağız. "a" klasörüne extract etmiş olalım.
+
+Python 2.7.10 yüklü olması gerektiğinden https://www.python.org/downloads/release/python-2710/ linkinden bilgisyarın özelliğine göre "Windows x86-64 MSI installer" indirdik.
+
+patchbilgisi.txt ve windows-Exploit-Suggester.py dosyasını bilgisayarımızda python.exe nin bulunduğu bir klasöre koyacağız.
+
+NŞA'da python.exe sadece bulunduğu dizinde çalışır. Bununla ilgili kısıtı kaldırmak için; C'ye attık ve 
+Computer>Properties>Advanced System Settings>Environment Variables> Variable=path olan değişkeni editledik. ";" ekleyerek "C:\Python27" ekledik.
+Daha sonra cmd açıp;
+
+#python windows-exploit-suggester.py --update      //Windows-Exploit-Suggester ı extract ettiğimiz a klasörü altında çalıştırdık.
+2016-11-21-mssb.xls altına yazdığını döndü.
+
+#python.exe windows-exploit-suggester.py -d 2016-11-21-mssb.xls -i patchbilgisi.txt 
+// excelde bir dosya oluşturdu lakin bilgisayarda office olmadığı için libre office indirdik, kurduk ama bu sefer de python-xlrd library yüklememiz gerektiğini döndü. 
+
+*Download xlrd-0.9.2 
+C'de py adlı bir klasöre extract ettik.
+
+#C:\py\xlrd-0.9.2>c:\Python27\python setup.py install           
+
+Sonra tekrar a klasörü altına gidip aşağıdaki komutu çalıştırdık.
+
+#python.exe windows-exploit-suggester.py -d 2016-11-21-mssb.xls -i patchbilgisi.txt
+//Nihayet açıklıkları döktü:)
+
