@@ -1,4 +1,4 @@
-Windows İşletim Sistemş Açıklıklarını Tespit Etme
+Windows İşletim Sistemi Açıklıklarını Tespit Etme
 
 cmd:
 # systeminfo > <patchbilgisi.txt      //İşletim sistemi hakkında teknik detaylarını(OS versiyonu, service pack, geçilen güncelleme yamaları) gösteren sistem özet aracı. Bunun çıktısını da patchbilgisi.txt ye aktardık.
@@ -23,8 +23,8 @@ Daha sonra cmd açıp;
 #python.exe windows-exploit-suggester.py -d 2016-11-21-mssb.xls -i patchbilgisi.txt 
 // excelde bir dosya oluşturdu lakin bilgisayarda office olmadığı için libre office indirdik, kurduk ama bu sefer de python-xlrd library yüklememiz gerektiğini döndü. 
 
-*Download xlrd-0.9.2 
-C'de py adlı bir klasöre extract ettik.
+*Download xlrd-0.9.2 (https://pypi.python.org/pypi/xlrd#downloads)
+C'de py adlı bir klasöre extract ettik. (https://groups.google.com/forum/#!topic/python-excel/jm536Kt7v90)
 
 #C:\py\xlrd-0.9.2>c:\Python27\python setup.py install           
 
